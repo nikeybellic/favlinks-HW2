@@ -28,9 +28,9 @@ class LinkContainer extends React.Component {
         <h1>My Favorite Links</h1>
         <p>Add a new url with a name and link to the table.</p>
             
-        <Table linkData={this.state.favLinks} removeLink = {this.removeCharacter}/>
+        <Table linkData={this.state.favLinks} removeLink = {this.handleRemove}/>
         <br />
-        <h3>Add New</h3>
+        <h3>Add New Links here!</h3>
         <Form handleSubmit={this.handleSubmit}/>
       </div>
     )

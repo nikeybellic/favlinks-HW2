@@ -25,7 +25,7 @@ const TableBody = (props) => {
           <a href={row.URL}>{row.URL}</a>
         </td>
         <td>
-          <button onClick={() => props.removeLink(index)}>Delete</button>
+          <button onClick={() => props.handleRemove(index)}>Delete</button>
         </td>
       </tr>
     )
@@ -35,11 +35,11 @@ const TableBody = (props) => {
 }
 
 const Table = (props) => {
-  const { linkData, removeLink } = props;
+  const { linkData, handleRemove } = props;
     return( 
         <table>
             <TableHeader />
-            <TableBody linkData = {linkData} removeLink = {removeLink}/>
+            <TableBody linkData = {linkData} handleRemove = {handleRemove}/>
         </table>
     )
 

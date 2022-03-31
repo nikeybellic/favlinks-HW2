@@ -10,12 +10,7 @@ class Form extends Component {
     }
   }
 
-  handleChange = (event) => {
-    this.setState({
-      name: event.target.value,
-  })
-  }
-  
+
   nameChange = (event)=>{
     this.setState({
         name: event.target.value
@@ -31,6 +26,9 @@ class Form extends Component {
   onFormSubmit = (event) => {
     
     event.preventDefault()
+    const name = event.target.name.value
+    const url = event.target.URL.value
+    let newLink = {name: name, URL: url}
     this.props.handleSubmit(this.state)
     this.setState({
          name: "",
@@ -40,23 +38,12 @@ class Form extends Component {
 
   render() {
     return (
-      <form submitForm ={this.onFormSubmit}>
-            
-            <label for = "name"> Name </label>
-
-            <input type = "text"
-            onClick = {this.nameChange}
-            values = {this.state.name}
-            />
-
-           <label for = "URL"> URL </label>
-
-              <input  type = "text"
-                onClick ={this.urlLink}
-                values = {this.state.URL}
-                />
-            
-            <button type="submit">Submit</button>
+      <form onSubmit={this.onFormSubmit}>
+          <label>Name</label>
+          <input name="name" id="name" type="text" value={this.state.name}  onChange={this.nameChange}/>
+          <label>URL</label>
+          <input name="URL" id="URL" type="url" value={this.state.URL} onChange={this.urlLink}/>
+          <button type="submit">Submit</button>
       </form>
     )
   }
